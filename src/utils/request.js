@@ -4,11 +4,12 @@ import nprogress from "nprogress";
 import "nprogress/nprogress.css";
 // create an axios instance
 const service = axios.create({
-  baseURL: "/api", // url = base url + request url
-  timeout: 5000, // request timeout
+  baseURL: process.env.VUE_APP_BASEURL, // url = base url + request url
+  timeout: 20000, // request timeout
 });
 
 //请求拦截器：携带的token字段
+
 service.interceptors.request.use(
   (config) => {
     // 进度条开始动

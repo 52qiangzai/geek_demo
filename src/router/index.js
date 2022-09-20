@@ -11,6 +11,7 @@ const Video = () => import("@/views/Video");
 const Login = () => import("@/views/Login");
 const Me = () => import("@/views/Me");
 const ArticleDetail = () => import("@/views/ArticleDetail");
+const PersonDetail = () => import("@/views/PersonDetail");
 
 const routes = [
   {
@@ -70,6 +71,14 @@ const routes = [
     component: ArticleDetail,
     meta: {
       title: "文章页",
+    },
+  },
+  {
+    name: "person",
+    path: "/person",
+    component: PersonDetail,
+    meta: {
+      title: "个人信息",
     },
   },
 ];

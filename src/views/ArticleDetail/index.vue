@@ -17,7 +17,7 @@
         </div>
       </template>
       <template #right>
-        <van-icon name="ellipsis" size="5.4vw" />
+        <van-icon name="ellipsis" size="5.4vw" @click="showShare = true" />
       </template>
     </van-nav-bar>
     <!-- 骨架容器 -->
@@ -66,6 +66,12 @@
         <div class="html" v-html="article.content" v-highlight></div>
         <div class="space"></div>
       </div>
+      <!-- 分享面板 -->
+      <van-share-sheet
+        v-model="showShare"
+        title="立即分享给好友"
+        :options="options"
+      />
       <!-- 评论：评论组件 -->
       <!-- <article-comment
         :article="article"
@@ -80,7 +86,7 @@ import { reqArticleDetail } from "@/api/article";
 // import { followAuthor } from "@/api/user";
 // import ArticleComment from "./components/article-comment.vue";
 export default {
-  name:'ArticleDetail',
+  name: "ArticleDetail",
   //   components: { ArticleComment },
   data() {
     return {
@@ -88,10 +94,26 @@ export default {
       article: {},
       // 是否显示头部作者信息
       showNavAuthor: false,
+      // 分享面板
+      showShare: false,
       // 正在加载
       loading: false,
       // 是否滚动到评论
       isToComment: false,
+      options: [
+        [
+          { name: "微信", icon: "wechat" },
+          { name: "朋友圈", icon: "wechat-moments" },
+          { name: "微博", icon: "weibo" },
+          { name: "QQ", icon: "qq" },
+        ],
+        [
+          { name: "复制链接", icon: "link" },
+          { name: "分享海报", icon: "poster" },
+          { name: "二维码", icon: "qrcode" },
+          { name: "小程序码", icon: "weapp-qrcode" },
+        ],
+      ],
     };
   },
   created() {

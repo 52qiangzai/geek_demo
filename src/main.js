@@ -23,11 +23,15 @@ import {
   Tabs,
   Icon,
   Cell,
+  CellGroup ,
   List,
   Lazyload,
   Empty,
   Skeleton,
   Image as VanImage,
+  ShareSheet,
+  Col,
+  Row,
 } from "vant";
 
 Vue.use(Tabbar);
@@ -41,11 +45,15 @@ Vue.use(Tab);
 Vue.use(Tabs);
 Vue.use(Icon);
 Vue.use(Cell);
+Vue.use(CellGroup);
 Vue.use(List);
 Vue.use(Lazyload);
 Vue.use(Empty);
 Vue.use(Skeleton);
 Vue.use(VanImage);
+Vue.use(ShareSheet);
+Vue.use(Col);
+Vue.use(Row);
 
 Vue.config.productionTip = false;
 

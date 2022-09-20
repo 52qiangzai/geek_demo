@@ -2,6 +2,7 @@ import axios from "axios";
 import nprogress from "nprogress";
 // 引入进度条样式
 import "nprogress/nprogress.css";
+import { getToken } from "./token";
 // create an axios instance
 const service = axios.create({
   baseURL: process.env.VUE_APP_BASEURL, // url = base url + request url
@@ -9,10 +10,13 @@ const service = axios.create({
 });
 
 //请求拦截器：携带的token字段
-
 service.interceptors.request.use(
   (config) => {
-    // 进度条开始动
+    let res = getToken();
+    if (res) {
+      const { token } = JSON.parse(res);
+      config.headers["Authorization"] = `Bearer ${token}`;
+    }
     nprogress.start();
     return config;
   },

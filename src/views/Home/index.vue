@@ -22,6 +22,7 @@
         </van-list>
       </van-tab>
     </van-tabs>
+    
   </div>
 </template>
 

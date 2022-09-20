@@ -125,7 +125,7 @@ export default {
 <style lang="less" scoped>
 .loginContainer {
   .header {
-    box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+    
   }
   width: 100%;
   height: 100%;

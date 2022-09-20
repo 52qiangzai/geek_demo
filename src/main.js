@@ -15,6 +15,12 @@ import {
   Button,
   CountDown,
   Toast,
+  Tab,
+  Tabs,
+  Icon,
+  Cell,
+  List,
+  Lazyload,
 } from "vant";
 
 Vue.use(Tabbar);
@@ -24,6 +30,13 @@ Vue.use(Form);
 Vue.use(Field);
 Vue.use(Button);
 Vue.use(CountDown);
+Vue.use(Tab);
+Vue.use(Tabs);
+Vue.use(Icon);
+Vue.use(Cell);
+Vue.use(List);
+Vue.use(Lazyload);
+
 Vue.config.productionTip = false;
 
 new Vue({

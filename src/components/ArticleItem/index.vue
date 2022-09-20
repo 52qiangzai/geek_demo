@@ -1,6 +1,6 @@
 <template>
   <!-- 一条文章单元格 -->
-  <van-cell>
+  <van-cell @click="routerToArticleDetail(artObj.art_id)">
     <!-- 标题区域的插槽 -->
     <template #title>
       <div class="title-box">
@@ -63,6 +63,15 @@ export default {
       bottomText: "取消",
     };
   },
+  methods: {
+    // 文章详情页跳转
+    routerToArticleDetail(id) {
+      this.$router.push({
+        name: "article",
+        query: { id },
+      });
+    },
+  },
 };
 </script>
 
@@ -95,7 +104,7 @@ export default {
   height: 70px;
   background-color: #f8f8f8;
   object-fit: cover;
-border-radius: 5px;
+  border-radius: 5px;
 }
 
 /* 三图, 图片容器 */

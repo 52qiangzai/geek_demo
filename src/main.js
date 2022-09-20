@@ -6,6 +6,10 @@ import "@/styles/reset.css";
 import router from "@/router";
 import store from "@/store";
 import "@vant/touch-emulator";
+
+import myHighlight from "@/utils/myhighlight";
+Vue.use(myHighlight);
+
 import {
   Tabbar,
   TabbarItem,
@@ -22,6 +26,8 @@ import {
   List,
   Lazyload,
   Empty,
+  Skeleton,
+  Image as VanImage,
 } from "vant";
 
 Vue.use(Tabbar);
@@ -38,6 +44,9 @@ Vue.use(Cell);
 Vue.use(List);
 Vue.use(Lazyload);
 Vue.use(Empty);
+Vue.use(Skeleton);
+Vue.use(VanImage);
+
 Vue.config.productionTip = false;
 
 new Vue({

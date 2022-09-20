@@ -10,6 +10,7 @@ const Question = () => import("@/views/Question");
 const Video = () => import("@/views/Video");
 const Login = () => import("@/views/Login");
 const Me = () => import("@/views/Me");
+const ArticleDetail = () => import("@/views/ArticleDetail");
 
 const routes = [
   {
@@ -61,6 +62,14 @@ const routes = [
     component: Login,
     meta: {
       title: "登录",
+    },
+  },
+  {
+    name: "article",
+    path: "/article",
+    component: ArticleDetail,
+    meta: {
+      title: "文章页",
     },
   },
 ];

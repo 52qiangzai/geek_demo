@@ -63,11 +63,11 @@ export default {
         timestamp: timestamp,
       });
     },
-
     // 切换tab事件
     onClickTab(id) {
       this.getArticles(id, Date.now());
     },
+    // 加载更多文章
     async loadingMore() {
       let res = await this.getArticles(this.active, this.pre_timestamp);
       if (res === "OK") {

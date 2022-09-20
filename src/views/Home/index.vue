@@ -9,7 +9,7 @@
         <van-list
           v-model="loading"
           :finished="finished"
-          finished-text="没有更多了"
+          finished-text="已加载全部内容"
           @load="loadingMore"
           :immediate-check="false"
         >
@@ -18,6 +18,7 @@
             :key="index"
             :artObj="article"
           />
+          <van-empty description="暂无内容" v-show="!articlesList.length" />
         </van-list>
       </van-tab>
     </van-tabs>

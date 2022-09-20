@@ -21,6 +21,7 @@ import {
   Cell,
   List,
   Lazyload,
+  Empty,
 } from "vant";
 
 Vue.use(Tabbar);
@@ -36,7 +37,7 @@ Vue.use(Icon);
 Vue.use(Cell);
 Vue.use(List);
 Vue.use(Lazyload);
-
+Vue.use(Empty);
 Vue.config.productionTip = false;
 
 new Vue({

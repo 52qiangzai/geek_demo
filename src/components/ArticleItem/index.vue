@@ -47,6 +47,7 @@
       </div>
     </template>
   </van-cell>
+
   <!-- 反馈面板 -->
 </template>
 
@@ -94,6 +95,7 @@ export default {
   height: 70px;
   background-color: #f8f8f8;
   object-fit: cover;
+border-radius: 5px;
 }
 
 /* 三图, 图片容器 */

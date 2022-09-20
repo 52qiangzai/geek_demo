@@ -23,12 +23,10 @@ const home = {
         return item;
       });
       if (timestamp !== state.pre_timestamp) {
-        //
         state.articlesList = newResult;
       } else {
         state.articlesList.push(...newResult);
       }
-
       state.pre_timestamp = pre_timestamp;
     },
   },

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <van-nav-bar left-arrow @click-left="onClickLeft">
+    <van-nav-bar left-arrow @click-left="$router.back()">
       <template #title> {{ title }} </template>
     </van-nav-bar>
   </div>
@@ -18,7 +18,9 @@ export default {
     this.title = this.$route.meta.title;
   },
   methods: {
-    onClickLeft() {},
+    onClickLeft() {
+      $router.back();
+    },
   },
 };
 </script>

@@ -23,3 +23,13 @@ export const reqUserBaseInfo = () => {
 export const reqUserProfile = () => {
   return request.get("/v1_0/user/profile");
 };
+
+// 更新用户信息
+export const reqUpdateUserProfile = (objInfo) => {
+  return request.patch("/v1_0/user/profile", objInfo);
+};
+
+// 上传用户头像
+export const reqUploadUserHead = (file) => {
+  return request.patch("/v1_0/user/photo", file);
+};

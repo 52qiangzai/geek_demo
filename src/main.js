@@ -23,7 +23,7 @@ import {
   Tabs,
   Icon,
   Cell,
-  CellGroup ,
+  CellGroup,
   List,
   Lazyload,
   Empty,
@@ -32,6 +32,7 @@ import {
   ShareSheet,
   Col,
   Row,
+  ActionSheet,
 } from "vant";
 
 Vue.use(Tabbar);
@@ -54,7 +55,7 @@ Vue.use(VanImage);
 Vue.use(ShareSheet);
 Vue.use(Col);
 Vue.use(Row);
-
+Vue.use(ActionSheet);
 Vue.config.productionTip = false;
 
 new Vue({

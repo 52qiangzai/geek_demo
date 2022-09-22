@@ -1,8 +1,10 @@
+import router from "@/router";
 import axios from "axios";
 import nprogress from "nprogress";
+import { Toast } from "vant";
 // 引入进度条样式
 import "nprogress/nprogress.css";
-import { getToken } from "./token";
+import { getToken, removeToken } from "./token";
 // create an axios instance
 const service = axios.create({
   baseURL: process.env.VUE_APP_BASEURL, // url = base url + request url
@@ -17,6 +19,7 @@ service.interceptors.request.use(
       const { token } = JSON.parse(res);
       config.headers["Authorization"] = `Bearer ${token}`;
     }
+
     nprogress.start();
     return config;
   },
@@ -34,7 +37,24 @@ service.interceptors.response.use(
     return res;
   },
   (error) => {
-    console.log("err" + error); // for debug
+    console.log(error.response);
+    switch (error.response.status) {
+      case 401:
+        Toast.fail("请登录后操作");
+        router.replace({
+          name: "login",
+        });
+        break;
+      case 500:
+        Toast.fail("登录失效，请重新登录");
+        removeToken();
+        router.replace({
+          name: "login",
+        });
+        break;
+    }
+
+    // console.log("err" + error); // for debug
     return Promise.reject(error);
   }
 );

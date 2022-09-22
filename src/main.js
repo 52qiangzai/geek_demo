@@ -33,6 +33,9 @@ import {
   Col,
   Row,
   ActionSheet,
+  DatetimePicker,
+  Popup,
+  Dialog,
 } from "vant";
 
 Vue.use(Tabbar);
@@ -56,12 +59,15 @@ Vue.use(ShareSheet);
 Vue.use(Col);
 Vue.use(Row);
 Vue.use(ActionSheet);
+Vue.use(DatetimePicker);
+Vue.use(Popup);
 Vue.config.productionTip = false;
 
 new Vue({
   router,
   store,
   beforeCreate() {
+    this.$dialog = Dialog;
     this.$toast = Toast;
   },
   render: (h) => h(App),

@@ -13,4 +13,15 @@ module.exports = defineConfig({
       },
     },
   },
+  devServer: {
+    proxy: {
+      "/api": {
+        target: "http://geek.itheima.net",
+        changeOrigin: true,
+        pathRewrite: {
+          "^/api": "",
+        },
+      },
+    },
+  },
 });

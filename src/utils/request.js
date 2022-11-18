@@ -7,7 +7,7 @@ import "nprogress/nprogress.css";
 import { getToken, removeToken } from "./token";
 // create an axios instance
 const service = axios.create({
-  baseURL: process.env.VUE_APP_BASEURL, // url = base url + request url
+  baseURL: '/api', // url = base url + request url
   timeout: 20000, // request timeout
 });
 
@@ -53,8 +53,6 @@ service.interceptors.response.use(
         });
         break;
     }
-
-    // console.log("err" + error); // for debug
     return Promise.reject(error);
   }
 );

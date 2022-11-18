@@ -77,17 +77,20 @@
         :article="article"
         @to-comment="scrollComment"
       ></article-comment> -->
+      <CommentList :article="article"/>
     </div>
   </div>
 </template>
 <script>
-import { reqArticleDetail } from "@/api/article";
-
-// import { followAuthor } from "@/api/user";
-// import ArticleComment from "./components/article-comment.vue";
+import {
+  reqArticleDetail,
+  reqFollowings,
+  reqCancelFollowings,
+} from "@/api/article";
+import CommentList from "@/components/CommentList";
 export default {
   name: "ArticleDetail",
-  //   components: { ArticleComment },
+  components: { CommentList },
   data() {
     return {
       // 文章详情
@@ -136,15 +139,28 @@ export default {
     },
     // 关注或者取消关注
     async followAuthor() {
-      // 1. 确定关注状态
-      // 2. 调用API函数
-      // 3. 如果失败：错误提示
-      // 4. 如果成功：成功提示 + 修改文章对象中的关注状态数据，切换按钮的状态
-      const newStatus = !this.article.is_followed;
-      const [err] = await followAuthor(this.article.aut_id, newStatus);
-      if (err) return this.$toast.fail("操作失败");
-      this.$toast.success(newStatus ? "关注成功" : "取消关注");
-      this.article.is_followed = newStatus;
+      try {
+        // 当前是关注状态
+        if (this.article.is_followed) {
+          // 需要取消关注
+          let res = await reqCancelFollowings(this.article.aut_id);
+          this.article.is_followed = false;
+          this.$toast.success("已取消关注");
+        } else {
+          // 需要关注
+          let { message } = await reqFollowings(this.article.aut_id);
+          this.article.is_followed = true;
+          if (message === "OK") this.$toast.success("关注成功");
+        }
+      } catch (error) {
+        this.$toast.fail("操作失败");
+      }
+
+      // const newStatus = !this.article.is_followed;
+      // const [err] = await followAuthor(this.article.aut_id, newStatus);
+      // if (err) return this.$toast.fail("操作失败");
+      // this.$toast.success(newStatus ? "关注成功" : "取消关注");
+      // this.article.is_followed = newStatus;
     },
     // 获取文章详情
     async getArticle() {

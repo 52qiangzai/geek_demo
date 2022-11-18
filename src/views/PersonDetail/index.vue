@@ -202,11 +202,11 @@ export default {
       const fileData = new FormData();
       fileData.append("photo", files.item(0));
       try {
+        this.show = false;
         const { message, data } = await reqUploadUserHead(fileData);
         if (message === "OK") {
           this.userProfile.photo = data.photo;
           this.$toast.success("上传成功");
-          this.show = false;
         }
       } catch (error) {
         this.$toast.fail("上传失败");

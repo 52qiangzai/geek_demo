@@ -36,6 +36,7 @@ import {
   DatetimePicker,
   Popup,
   Dialog,
+  Sticky,
 } from "vant";
 
 Vue.use(Tabbar);
@@ -61,6 +62,7 @@ Vue.use(Row);
 Vue.use(ActionSheet);
 Vue.use(DatetimePicker);
 Vue.use(Popup);
+Vue.use(Sticky);
 Vue.config.productionTip = false;
 
 new Vue({
